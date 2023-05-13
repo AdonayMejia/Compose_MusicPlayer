@@ -20,14 +20,13 @@ fun BottomBarActions(
     onStartSongList: () -> Unit,
     onPlayRandomSong: () -> Unit,
     modifier: Modifier = Modifier
-
 ) {
     BottomAppBar(modifier = modifier) {
         IconButton(
             onClick = onSettingsClick,
         ) {
             Icon(
-                Icons.Filled.Settings,//ADD TYPE
+                Icons.Filled.Settings,
                 contentDescription = stringResource(R.string.settings),
                 tint = MaterialTheme.colorScheme.primary
             )
@@ -47,7 +46,6 @@ fun BottomBarActions(
                 Icons.Filled.PlayCircle,
                 contentDescription = stringResource(R.string.start_playlist),
                 tint = MaterialTheme.colorScheme.primary
-
             )
         }
     }
