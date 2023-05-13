@@ -19,7 +19,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-
 class SongPlayerViewModel(
     val homeViewModel: HomeViewModel
 ) : ViewModel(){
@@ -93,7 +92,6 @@ class SongPlayerViewModel(
         }
     }
 
-
     fun onPreviousButtonClick(
         context: Context,
         mediaPlayer: Player
@@ -116,7 +114,6 @@ class SongPlayerViewModel(
         }
     }
 
-
     fun onNextButtonClick(
         context: Context,
         mediaPlayer: Player
@@ -138,7 +135,6 @@ class SongPlayerViewModel(
             }
         }
     }
-
 
     private fun playSong(context: Context, mediaPlayer: Player) {
         mediaPlayer.mediaPlayer?.let { mediaPlayer ->
@@ -163,7 +159,6 @@ class SongPlayerViewModel(
             }
         }
     }
-
 
     companion object {
         const val sliderPositionValue = 0f

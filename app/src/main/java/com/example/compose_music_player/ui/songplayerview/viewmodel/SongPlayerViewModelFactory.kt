@@ -14,5 +14,4 @@ class SongPlayerViewModelFactory(private val homeViewModel: HomeViewModel
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
-
 }
