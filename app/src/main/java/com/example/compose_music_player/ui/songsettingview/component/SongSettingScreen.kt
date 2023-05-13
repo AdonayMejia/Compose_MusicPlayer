@@ -17,7 +17,6 @@ fun SettingView(){
         BodyContent()
     }
 }
-
 @Composable
 fun BodyContent(){
     Column() {
@@ -26,7 +25,6 @@ fun BodyContent(){
         }
     }
 }
-
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun ShowButton(){

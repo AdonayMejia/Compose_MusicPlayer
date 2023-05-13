@@ -67,12 +67,6 @@ fun MediaPlayer(
     )
 }
 
-
-
-
-
-
-
 @Composable
 fun Player(
     uiState: SongPlayerUiState,
@@ -150,5 +144,3 @@ fun Player(
             }
         }
     }
-
-

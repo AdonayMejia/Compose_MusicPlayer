@@ -73,7 +73,6 @@ fun SongList(
     }
 }
 
-
 @Composable
 fun SongListItem(song : SongModel, onClick: (SongModel) -> Unit) {
     Row(verticalAlignment = Alignment.CenterVertically,
@@ -93,9 +92,6 @@ fun SongListItem(song : SongModel, onClick: (SongModel) -> Unit) {
             song.name,
             color = MaterialTheme.colorScheme.secondary,
             style = MaterialTheme.typography.bodyLarge,
-
         )
     }
 }
-
-
