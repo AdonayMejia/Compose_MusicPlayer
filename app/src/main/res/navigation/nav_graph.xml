@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeViewFragment">
+
+    <fragment
+        android:id="@+id/homeViewFragment"
+        android:name="com.example.compose_music_player.ui.homeview.HomeViewFragment"
+        android:label="HomeViewFragment" >
+        <action
+            android:id="@+id/action_homeViewFragment_to_songPlayerFragment"
+            app:destination="@id/songPlayerFragment" />
+        <action
+            android:id="@+id/action_homeViewFragment_to_songSettingFragment"
+            app:destination="@id/songSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/songPlayerFragment"
+        android:name="com.example.compose_music_player.ui.songplayerview.SongPlayerFragment"
+        android:label="SongPlayerFragment" >
+        <action
+            android:id="@+id/action_songPlayerFragment_to_homeViewFragment"
+            app:destination="@id/homeViewFragment" />
+        <action
+            android:id="@+id/action_songPlayerFragment_to_songSettingFragment"
+            app:destination="@id/songSettingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/songSettingFragment"
+        android:name="com.example.compose_music_player.ui.songsettingview.SongSettingFragment"
+        android:label="SongSettingFragment" />
+</navigation>
