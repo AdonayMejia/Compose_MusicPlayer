@@ -22,56 +22,56 @@ import com.example.compose_music_player.ui.songsettingview.viewmodel.SongSetting
 @Suppress("DEPRECATION")
 class SongPlayerFragment : Fragment() {
 
-//    private val viewModel: SongPlayerViewModel by activityViewModels {
-//        SongPlayerViewModelFactory(
-//            homeViewModel
-//        )
-//    }
-//    private val songSettingViewModel: SongSettingViewModel by activityViewModels {
-//        SongSettingFactory(SongRepository)
-//    }
-//    private val homeViewModel: HomeViewModel by activityViewModels {
-//        HomeViewModelFactory(SongRepository, requireContext(), songSettingViewModel)
-//    }
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-//    ): View {
-//        return composeView{
-//            MediaPlayer(viewModel = viewModel, player = Player)
-//        }
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        startSongInfo()
-//    }
-//
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        setInitialSongTitle()
-//    }
-//
-//    private fun setInitialSongTitle() {
-//        val args = arguments
-//        val newSongTitle = args?.getString(SongKey).orEmpty()
-//        viewModel.homeViewModel.uiState.songStateFlow.value.find { it.name == newSongTitle }
-//            ?.let { song ->
-//                viewModel.initSongName(song)
-//            }
-//    }
-//
-//    private fun startSongInfo() {
-//        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-//            viewModel.currentSongPlaying.collect { song ->
-//                if (song != null) {
-//                    viewModel.initSongName(song)
-//                }
-//            }
-//        }
-//    }
-//
-//    companion object {
-//        const val SongKey = "songTitle"
-//    }
+    private val viewModel: SongPlayerViewModel by activityViewModels {
+        SongPlayerViewModelFactory(
+            homeViewModel
+        )
+    }
+    private val songSettingViewModel: SongSettingViewModel by activityViewModels {
+        SongSettingFactory(SongRepository)
+    }
+    private val homeViewModel: HomeViewModel by activityViewModels {
+        HomeViewModelFactory(SongRepository, requireContext(), songSettingViewModel)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        return composeView{
+            MediaPlayer(viewModel = viewModel, player = Player)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        startSongInfo()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        setInitialSongTitle()
+    }
+
+    private fun setInitialSongTitle() {
+        val args = arguments
+        val newSongTitle = args?.getString(SongKey).orEmpty()
+        viewModel.homeViewModel.uiState.songStateFlow.value.find { it.name == newSongTitle }
+            ?.let { song ->
+                viewModel.initSongName(song)
+            }
+    }
+
+    private fun startSongInfo() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.currentSongPlaying.collect { song ->
+                if (song != null) {
+                    viewModel.initSongName(song)
+                }
+            }
+        }
+    }
+
+    companion object {
+        const val SongKey = "songTitle"
+    }
 }

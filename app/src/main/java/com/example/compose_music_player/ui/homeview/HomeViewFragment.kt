@@ -30,84 +30,84 @@ import com.example.compose_music_player.ui.songsettingview.viewmodel.SongSetting
 
 class HomeViewFragment : Fragment() {
 
-//    private val viewModel: HomeViewModel by activityViewModels {
-//        HomeViewModelFactory(SongRepository,requireContext(),sharedViewModel)
-//    }
-//    private var currentSongIndex: Int = 0
-//    private val sharedViewModel: SongSettingViewModel by activityViewModels {
-//        SongSettingFactory(SongRepository)
-//    }
-//
-//    @OptIn(ExperimentalMaterial3Api::class)
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View {
-//        return composeView {
-//            val songs by viewModel.uiState.songStateFlow.collectAsState()
-//            Scaffold(
-//                bottomBar = {
-//                    BottomBarActions(
-//                        onSettingsClick = { navigateToSetting() },
-//                        onStartSongList = { startPlaylist() },
-//                        onPlayRandomSong = { toggleRandomStart() }
-//                    )
-//                }
-//            ) {
-//                SongList(
-//                    songs = songs,
-//                    onSongClick = { song -> onSongClick(song)},
-//                    onRefresh = { viewModel.refreshSongs() },
-//                    modifier = Modifier.padding(it)
-//                )
-//            }
-//        }
-//    }
-//
-//    private fun startPlaylist() {
-//        viewModel.playFirstSong()?.let {song ->
-//            onSongClick(song)
-//        }
-//    }
-//
-//    private fun toggleRandomStart() {
-//        viewModel.randomStart()?.let {song ->
-//            onSongClick(song)
-//        }
-//    }
-//
-//    private fun showNoSongsToast() {
-//        context?.let { ctx ->
-//            Toast.makeText(
-//                ctx, "No songs available on playlist", Toast.LENGTH_SHORT
-//            ).show()
-//        }
-//    }
-//
-//    private fun onSongClick(song: SongModel) {
-//        val position = viewModel.onSongClick(song)
-//        playSelectedSong(position)
-//        navigateToDetailActivity(position)
-//    }
-//
-//    private fun playSelectedSong(position: Int) {
-//        Player.mediaPlayer?.release()
-//        currentSongIndex = position
-//        Player.mediaPlayer =
-//            MediaPlayer.create(context, viewModel.uiState.songStateFlow.value[position].resource)
-//        Player.mediaPlayer?.start()
-//    }
-//
-//     private fun navigateToDetailActivity(position: Int) {
-//         val songs = viewModel.uiState.songStateFlow.value
-//         val bundle = Bundle().apply {
-//             putString(SongPlayerFragment.SongKey, songs[position].name)
-//         }
-//        findNavController().navigate(R.id.action_homeViewFragment_to_songPlayerFragment,bundle)
-//    }
-//
-//    private fun navigateToSetting(){
-//        findNavController().navigate(R.id.action_homeViewFragment_to_songSettingFragment)
-//    }
+    private val viewModel: HomeViewModel by activityViewModels {
+        HomeViewModelFactory(SongRepository,requireContext(),sharedViewModel)
+    }
+    private var currentSongIndex: Int = 0
+    private val sharedViewModel: SongSettingViewModel by activityViewModels {
+        SongSettingFactory(SongRepository)
+    }
+
+    @OptIn(ExperimentalMaterial3Api::class)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return composeView {
+            val songs by viewModel.uiState.songStateFlow.collectAsState()
+            Scaffold(
+                bottomBar = {
+                    BottomBarActions(
+                        onSettingsClick = { navigateToSetting() },
+                        onStartSongList = { startPlaylist() },
+                        onPlayRandomSong = { toggleRandomStart() }
+                    )
+                }
+            ) {
+                SongList(
+                    songs = songs,
+                    onSongClick = { song -> onSongClick(song)},
+                    onRefresh = { viewModel.refreshSongs() },
+                    modifier = Modifier.padding(it)
+                )
+            }
+        }
+    }
+
+    private fun startPlaylist() {
+        viewModel.playFirstSong()?.let {song ->
+            onSongClick(song)
+        }
+    }
+
+    private fun toggleRandomStart() {
+        viewModel.randomStart()?.let {song ->
+            onSongClick(song)
+        }
+    }
+
+    private fun showNoSongsToast() {
+        context?.let { ctx ->
+            Toast.makeText(
+                ctx, "No songs available on playlist", Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    private fun onSongClick(song: SongModel) {
+        val position = viewModel.onSongClick(song)
+        playSelectedSong(position)
+        navigateToDetailActivity(position)
+    }
+
+    private fun playSelectedSong(position: Int) {
+        Player.mediaPlayer?.release()
+        currentSongIndex = position
+        Player.mediaPlayer =
+            MediaPlayer.create(context, viewModel.uiState.songStateFlow.value[position].resource)
+        Player.mediaPlayer?.start()
+    }
+
+     private fun navigateToDetailActivity(position: Int) {
+         val songs = viewModel.uiState.songStateFlow.value
+         val bundle = Bundle().apply {
+             putString(SongPlayerFragment.SongKey, songs[position].name)
+         }
+        findNavController().navigate(R.id.action_homeViewFragment_to_songPlayerFragment,bundle)
+    }
+
+    private fun navigateToSetting(){
+        findNavController().navigate(R.id.action_homeViewFragment_to_songSettingFragment)
+    }
 }
