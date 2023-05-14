@@ -1,11 +1,9 @@
 package com.example.compose_music_player.ui.songplayerview.viewmodel
 
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.compose_music_player.R
 import com.example.compose_music_player.model.Player
 import com.example.compose_music_player.model.SongModel
@@ -21,7 +19,7 @@ import kotlinx.coroutines.launch
 
 class SongPlayerViewModel(
     val homeViewModel: HomeViewModel
-) : ViewModel(){
+) : ViewModel() {
 
     private var initSongName = false
 
@@ -46,8 +44,8 @@ class SongPlayerViewModel(
     )
 
     val currentSongPlaying: StateFlow<SongModel?> = currentSongIndex.map { index ->
-            songs.value.getOrNull(index)
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(),null)
+        songs.value.getOrNull(index)
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
     fun updateSliderPosition(mediaPlayer: Player) {
         viewModelScope.launch {
@@ -72,7 +70,7 @@ class SongPlayerViewModel(
         }
     }
 
-    fun initSongName(song: SongModel){
+    fun initSongName(song: SongModel) {
         this.songName.value = song.name
         val index = songs.value.indexOfFirst { it == song }
         currentSongIndex.value = index

@@ -40,14 +40,14 @@ class SongPlayerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val onPressBack = object : OnBackPressedCallback(true){
+        val onPressBack = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().navigate(R.id.action_songPlayerFragment_to_homeViewFragment)
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(onPressBack)
 
-        return composeView{
+        return composeView {
             MediaPlayer(viewModel = viewModel, player = Player)
         }
     }

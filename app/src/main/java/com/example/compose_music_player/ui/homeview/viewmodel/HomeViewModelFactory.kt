@@ -9,11 +9,12 @@ import com.example.compose_music_player.ui.songsettingview.viewmodel.SongSetting
 class HomeViewModelFactory(
     private val songRepository: SongRepository,
     private val context: Context,
-    private val songSettingViewModel: SongSettingViewModel) : ViewModelProvider.Factory{
+    private val songSettingViewModel: SongSettingViewModel
+) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return HomeViewModel(songRepository,context,songSettingViewModel) as T
+            return HomeViewModel(songRepository, context, songSettingViewModel) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

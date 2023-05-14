@@ -37,7 +37,6 @@ fun BottomBarActions(
                 Icons.Filled.Shuffle,
                 contentDescription = stringResource(R.string.random),
                 tint = MaterialTheme.colorScheme.primary
-
             )
         }
         Spacer(modifier = Modifier.weight(1f))

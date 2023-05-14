@@ -38,15 +38,17 @@ class SongSettingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        val onPressBack = object : OnBackPressedCallback(true){
+        val onPressBack = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 findNavController().navigate(R.id.action_songSettingFragment_to_homeViewFragment)
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(onPressBack)
 
-        viewModel.addNewSongsToProvider(requireActivity().contentResolver,
-            requireActivity().resources, ::loadSongsFromProvider)
+        viewModel.addNewSongsToProvider(
+            requireActivity().contentResolver,
+            requireActivity().resources, ::loadSongsFromProvider
+        )
         loadSongsFromProvider()
         return composeView {
             Scaffold(

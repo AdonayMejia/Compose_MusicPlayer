@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
-    private val songRepository:SongRepository,
+    private val songRepository: SongRepository,
     context: Context,
     private val songSettingViewModel: SongSettingViewModel
 ) : ViewModel() {
@@ -32,6 +32,7 @@ class HomeViewModel(
     fun onSongClick(song: SongModel): Int {
         return uiState.songStateFlow.value.indexOf(song)
     }
+
     private suspend fun collectAddedSongs() {
         songSettingViewModel.songsAdded.collect { song ->
             songsMutableState.value = songsMutableState.value + song
@@ -57,21 +58,21 @@ class HomeViewModel(
         songsMutableState.value = combinedSongs
     }
 
-    fun playFirstSong(): SongModel?{
+    fun playFirstSong(): SongModel? {
         val songs = uiState.songStateFlow.value
-        return if (songs.isNotEmpty()){
+        return if (songs.isNotEmpty()) {
             songs[0]
-        }else{
+        } else {
             null
         }
     }
 
-    fun randomStart():SongModel? {
+    fun randomStart(): SongModel? {
         val songs = uiState.songStateFlow.value
-        return if (songs.isNotEmpty()){
+        return if (songs.isNotEmpty()) {
             val random = (songs.indices).random()
             songs[random]
-        }else{
+        } else {
             null
         }
     }

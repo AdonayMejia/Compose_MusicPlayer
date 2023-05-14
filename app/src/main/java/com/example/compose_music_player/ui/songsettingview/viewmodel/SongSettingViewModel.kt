@@ -7,8 +7,6 @@ import android.content.ContentValues
 import android.net.Uri
 import android.util.Log
 import androidx.compose.runtime.MutableState
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.compose_music_player.R
@@ -23,7 +21,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SongSettingViewModel(songRepository: SongRepository) : ViewModel() {
@@ -100,7 +97,11 @@ class SongSettingViewModel(songRepository: SongRepository) : ViewModel() {
         }
     }
 
-    fun songDeletion(songsState: MutableState<List<SongModel>>, song: SongModel, activity: Activity) {
+    fun songDeletion(
+        songsState: MutableState<List<SongModel>>,
+        song: SongModel,
+        activity: Activity
+    ) {
         val songIndex = songsState.value.indexOf(song)
         if (songIndex >= 0) {
             val songUriWithId = ContentUris.withAppendedId(SongProviderUri, songIndex.toLong())
@@ -120,7 +121,11 @@ class SongSettingViewModel(songRepository: SongRepository) : ViewModel() {
         val newSongs = listOf(
             SongModel.create(SongSettingFragment.SONG_NAME_FOUR, R.raw.song4, R.drawable.myself),
             SongModel.create(SongSettingFragment.SONG_NAME_FIVE, R.raw.song5, R.drawable.somebody),
-            SongModel.create(SongSettingFragment.SONG_NAME_SIX, R.raw.song6, R.drawable.imagination),
+            SongModel.create(
+                SongSettingFragment.SONG_NAME_SIX,
+                R.raw.song6,
+                R.drawable.imagination
+            ),
             SongModel.create(SongSettingFragment.SONG_NAME_SEVEN, R.raw.song7, R.drawable.motley),
             SongModel.create(SongSettingFragment.SONG_NAME_EIGHT, R.raw.song8, R.drawable.walker),
             SongModel.create(SongSettingFragment.SONG_NAME_NINE, R.raw.song9, R.drawable.iris),
