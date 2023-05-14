@@ -77,14 +77,6 @@ class HomeViewFragment : Fragment() {
         }
     }
 
-    private fun showNoSongsToast() {
-        context?.let { ctx ->
-            Toast.makeText(
-                ctx, "No songs available on playlist", Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
-
     private fun onSongClick(song: SongModel) {
         val position = viewModel.onSongClick(song)
         playSelectedSong(position)

@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.compose_music_player.R
 import com.example.compose_music_player.model.Player
 import com.example.compose_music_player.model.repository.SongRepository
 import com.example.compose_music_player.ui.composeView
@@ -37,6 +40,13 @@ class SongPlayerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
+        val onPressBack = object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                findNavController().navigate(R.id.action_songPlayerFragment_to_homeViewFragment)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(onPressBack)
+
         return composeView{
             MediaPlayer(viewModel = viewModel, player = Player)
         }

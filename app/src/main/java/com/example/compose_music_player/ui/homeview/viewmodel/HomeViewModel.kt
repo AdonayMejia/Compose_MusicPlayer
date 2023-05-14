@@ -25,18 +25,18 @@ class HomeViewModel(
     init {
         viewModelScope.launch {
             fetchSongs(context as Activity)
-            //collectAddedSongs()
+            collectAddedSongs()
         }
     }
 
     fun onSongClick(song: SongModel): Int {
         return uiState.songStateFlow.value.indexOf(song)
     }
-//    private suspend fun collectAddedSongs() {
-//        songSettingViewModel.addedSongs.collect { song ->
-//            songsMutableState.value = songsMutableState.value + song
-//        }
-//    }
+    private suspend fun collectAddedSongs() {
+        songSettingViewModel.songsAdded.collect { song ->
+            songsMutableState.value = songsMutableState.value + song
+        }
+    }
 
     fun refreshSongs() {
         viewModelScope.launch {

@@ -29,5 +29,9 @@
     <fragment
         android:id="@+id/songSettingFragment"
         android:name="com.example.compose_music_player.ui.songsettingview.SongSettingFragment"
-        android:label="SongSettingFragment" />
+        android:label="SongSettingFragment" >
+        <action
+            android:id="@+id/action_songSettingFragment_to_homeViewFragment"
+            app:destination="@id/homeViewFragment" />
+    </fragment>
 </navigation>

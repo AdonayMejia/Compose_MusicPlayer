@@ -97,7 +97,7 @@ class SongProvider : ContentProvider() {
         const val Id = "_id"
         const val SongName = "song_name"
         const val SongUri = "song_uri"
-        const val SongImgUri = "album_img_uri"
+        const val SongImgUri = "album_art_uri"
         val SongProviderUri: Uri = Uri.parse("content://$AUTHORITY/songs")
 
         fun getSongsFromCursor(cursor: Cursor): List<SongModel> {
