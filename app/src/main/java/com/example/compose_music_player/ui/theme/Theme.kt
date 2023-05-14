@@ -18,23 +18,61 @@ import androidx.core.view.WindowCompat
 private val DarkColorScheme = darkColorScheme(
     primary = primaryDark,
     secondary = secondaryDark,
-    tertiary = tertiaryDark
+    tertiary = tertiaryDark,
+    onPrimaryContainer = onPrimaryDarkContainer,
+    onSecondary = onSecondaryDark,
+    secondaryContainer = secondaryDarkContainer,
+    onSecondaryContainer = onSecondaryDarkContainer,
+    onTertiary = onTertiaryDark,
+    tertiaryContainer = TertiaryDarkContainer,
+    onTertiaryContainer = onTertiaryDarkContainer,
+    error = errorDark,
+    onError = onErrorDark,
+    errorContainer = errorDarkContainer,
+    onErrorContainer = onErrorDarkContainer,
+    background = backgroundDark,
+    onBackground = onBackgroundDark,
+    surface = surfaceDark,
+    onSurface = onSurfaceDark,
+    surfaceVariant = surfaceVariantDark,
+    onSurfaceVariant = onSurfaceVariantDark,
+    outline = outlineDark,
+    inverseSurface = inverseSurfaceDark,
+    inverseOnSurface = inverseOnSurfaceDark,
+    inversePrimary = inversePrimaryDark,
+    surfaceTint = surfaceTintDark,
+    outlineVariant = outlineVariantDark,
+    scrim = scrim
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = primaryLight,
     secondary = secondaryLight,
-    tertiary = tertiaryLight
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    tertiary = tertiaryLight,
+    onPrimaryContainer = onPrimaryLightContainer,
+    onSecondary = onSecondaryLight,
+    secondaryContainer = secondaryLightContainer,
+    onSecondaryContainer = onSecondaryLightContainer,
+    onTertiary = onTertiaryLight,
+    tertiaryContainer = TertiaryLightContainer,
+    onTertiaryContainer = onTertiaryLightContainer,
+    error = errorLight,
+    onError = onErrorLight,
+    errorContainer = errorLightContainer,
+    onErrorContainer = onErrorLightContainer,
+    background = backgroundLight,
+    onBackground = onBackgroundLight,
+    surface = surfaceLight,
+    onSurface = onSurfaceLight,
+    surfaceVariant = surfaceVariantLight,
+    onSurfaceVariant = onSurfaceVariantLight,
+    outline = outlineLight,
+    inverseSurface = inverseSurfaceLight,
+    inverseOnSurface = inverseOnSurfaceLight,
+    inversePrimary = inversePrimaryLight,
+    surfaceTint = surfaceTintLight,
+    outlineVariant = outlineVariantLight,
+    scrim = scrim
 )
 
 @Composable

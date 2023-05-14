@@ -34,18 +34,29 @@ val errorLightContainer = Color(0xFFFFDAD6)
 val errorDarkContainer = Color(0xFF93000A)
 val onErrorLightContainer = Color(0xFF410002)
 val onErrorDarkContainer = Color(0xFFFFDAD6)
-/*
-background FEFBFF 1B1B1F
-on background 1B1B1F E3E2E6
-surface FEFBFF 1B1B1F
-on surface 1B1B1F E3E2E6
-surface variant E1E2EC 44474F
-on surface variant 44474F C5C6D0
-outline 75777F 8E9099
-inverse surface 303034 E3E2E6
-inverse on surface F2F0F4 1B1B1F
-inverse primary AEC6FF 325CA8
-shadow 000000 000000
-surface tint 325CA8 AEC6FF
-outline variant C5C6D0 44474F
-scrim 000000 000000*/
+val backgroundLight = Color(0xFFFEFBFF)
+val backgroundDark = Color(0xFF1B1B1F)
+val onBackgroundLight = Color(0xFF1B1B1F)
+val onBackgroundDark = Color(0xFFE3E2E6)
+val surfaceLight = Color(0xFFFEFBFF)
+val surfaceDark = Color(0xFF1B1B1F)
+val onSurfaceLight = Color(0xFF1B1B1F)
+val onSurfaceDark = Color(0xFFE3E2E6)
+val surfaceVariantLight = Color(0xFFE1E2EC)
+val surfaceVariantDark = Color(0xFF44474F)
+val onSurfaceVariantLight = Color(0xFF44474F)
+val onSurfaceVariantDark = Color(0xFFC5C6D0)
+val outlineLight = Color(0xFF75777F)
+val outlineDark = Color(0xFF8E9099)
+val inverseSurfaceLight = Color(0xFF303034)
+val inverseSurfaceDark = Color(0xFFE3E2E6)
+val inverseOnSurfaceLight = Color(0xFFF2F0F4)
+val inverseOnSurfaceDark = Color(0xFF1B1B1F)
+val inversePrimaryLight = Color(0xFFAEC6FF)
+val inversePrimaryDark = Color(0xFF325CA8)
+val shadow = Color(0xFF000000)
+val surfaceTintLight = Color(0xFF325CA8)
+val surfaceTintDark = Color(0xFFAEC6FF)
+val outlineVariantLight = Color(0xFFC5C6D0)
+val outlineVariantDark = Color(0xFF44474F)
+val scrim = Color(0xFF000000)
