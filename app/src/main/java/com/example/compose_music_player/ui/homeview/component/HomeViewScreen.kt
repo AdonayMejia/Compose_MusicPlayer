@@ -57,7 +57,7 @@ fun SongList(
 
     val state = rememberPullRefreshState(refreshing, ::refresh)
 
-    Box(Modifier.pullRefresh(state)) {
+    Box(modifier.pullRefresh(state)) {
         LazyColumn(Modifier.fillMaxSize()) {
             if (!refreshing) {
                 items(songs) { song ->
@@ -81,8 +81,7 @@ fun SongListItem(song : SongModel, onClick: (SongModel) -> Unit) {
             painter = rememberAsyncImagePainter(model = song.image),
             contentDescription = stringResource(R.string.album_img),
             modifier = Modifier
-                .size(85.dp)
-                .clip(RoundedCornerShape(4.dp))
+                .size(95.dp)
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(

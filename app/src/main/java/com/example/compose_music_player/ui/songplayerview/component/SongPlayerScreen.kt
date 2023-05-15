@@ -76,7 +76,7 @@ fun Player(
     val playButton by uiState.playButton.collectAsState()
     val sliderPosition by uiState.sliderPosition.collectAsState()
     Column(
-        modifier = Modifier
+        modifier
             .padding(8.dp)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -87,11 +87,11 @@ fun Player(
                 id = R.drawable.motley
             ),
             contentDescription = stringResource(R.string.album_img),
-            modifier = Modifier
+            modifier
                 .size(width = 400.dp, height = 400.dp)
                 .clip(RoundedCornerShape(4.dp))
         )
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier.width(8.dp))
         Text(
             text = name ?: stringResource(R.string.song_name),
             color = MaterialTheme.colorScheme.secondary,
